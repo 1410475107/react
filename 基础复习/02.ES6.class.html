@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类和对象</title>
+</head>
+<body>
+    <script>
+        class Car{
+            // 构造函数用于初始化：属性
+            constructor(brand, color, price){
+                this.brand = brand;
+                this.color = color;
+                this.price = price;
+            }
+            run(){
+                console.log(this.brand + '可以跑');
+            }
+            getColor(){
+                console.log(this.brand + '是' + this.color);
+            }
+        }
+
+        let car1 = new Car('宝马', '蓝色', '50万');
+        car1.run();
+        car1.getColor();
+        console.log(car1.price);
+        // 继承
+        class Aodi extends Car{
+            constructor(brand, color, price, round4){
+                // 需要执行父级的构造函数
+                super(brand, color, price);
+                this.round4 = round4;
+            }
+            getRound4(){
+                return '标志：' + this.round4;
+            }
+        }
+        let aodi1 = new Aodi('奥迪', '银白色', '60万', '四个圈');
+        // 继承的方法
+        aodi1.getColor();
+        console.log(aodi1.getRound4());
+        
+    </script>
+</body>
+</html>
