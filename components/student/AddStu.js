@@ -1,9 +1,13 @@
 import React from 'react';
+import store from '../../store';
+// import {ADD_STUDENT} from '../../store/actionTypes';
+import {ADD_STUDENT_CREATOR} from '../../store/actionCreators';
+// console.log(require('../../store/actionTypes'));
 class AddStu extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            username:''
+            username:store.getState().username
         }
         this.handleChange = this.handleChange.bind(this);
         this.addStu = this.addStu.bind(this);
@@ -17,8 +21,11 @@ class AddStu extends React.Component{
     }
 
     addStu(){
-        // 调用父级的追加数据的方法
-        this.props.opername(this.state.username);
+        // const action = {
+        //     type:ADD_STUDENT,
+        //     value:this.state.username
+        // }
+        store.dispatch(ADD_STUDENT_CREATOR(this.state.username));
     }
 
     render(){
